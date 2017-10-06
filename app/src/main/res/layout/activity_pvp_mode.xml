@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/myGameStatusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Player X starts"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/myTableLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:keepScreenOn="true">
+
+        <TableRow
+            android:id="@+id/myTableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/myButton1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/myTableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/myButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/myTableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/myButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/myButton9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:width="100dp"
+                android:height="100dp"
+                android:fontFamily="casual"
+                android:onClick="myButtonPressed"
+                android:text=""
+                android:textSize="60sp" />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
