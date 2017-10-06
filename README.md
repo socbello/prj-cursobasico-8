@@ -31,7 +31,3 @@ We use [GitHub](http://github.com/) for versioning. For the versions available, 
 ## Authors
 
 * **Socrates Bello** - [socbello](https://github.com/socbello)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
