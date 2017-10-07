@@ -1,5 +1,6 @@
 package com.sbello.sbctictactoe;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -22,11 +23,13 @@ public class PvpModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pvp_mode);
 
         ActionBar myActionBar = getSupportActionBar();
-        myActionBar.setDisplayShowTitleEnabled(false);
-        myActionBar.setDisplayShowCustomEnabled(true);
-        View apptitle = getLayoutInflater().inflate(R.layout.app_title, null);
-        myActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
-        myActionBar.setCustomView(apptitle);
+        if (myActionBar != null) {
+            myActionBar.setDisplayShowTitleEnabled(false);
+            myActionBar.setDisplayShowCustomEnabled(true);
+            @SuppressLint("InflateParams") View appTitle = getLayoutInflater().inflate(R.layout.app_title, null);
+            myActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
+            myActionBar.setCustomView(appTitle);
+        }
         myTable = new int[3][3];
         playerXMove = true;
 
