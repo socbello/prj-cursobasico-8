@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
+    <string name="player_vs_player">Player vs. Player</string>
+    <string name="exit">EXIT</string>
+    <string name="player_x_starts">Player X starts</string>
+    <string name="reset">RESET</string>
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="tic_tac_toe_logo">Tic Tac Toe Logo</string>
 </resources>
