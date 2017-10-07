@@ -154,7 +154,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight=".75"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -169,6 +169,16 @@
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:onClick="myResetPressed"
+                android:text="RESET" />
+
         </LinearLayout>
 
         <LinearLayout
