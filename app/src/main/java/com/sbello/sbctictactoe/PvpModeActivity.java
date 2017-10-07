@@ -27,9 +27,64 @@ public class PvpModeActivity extends AppCompatActivity {
         View apptitle = getLayoutInflater().inflate(R.layout.app_title, null);
         myActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
         myActionBar.setCustomView(apptitle);
-
         myTable = new int[3][3];
         playerXMove = true;
+
+    }
+
+    public void myResetPressed(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.resetButton:
+                AlertDialog alert = new AlertDialog.Builder(this)
+                        .setTitle("Tic Tac Toe")
+                        .setMessage("Do you want to reset the game?")
+                        .setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(PvpModeActivity.this, "Let's play again!", Toast.LENGTH_SHORT).show();
+                                        myTable = new int[3][3];
+                                        Button button1 = (Button) findViewById(R.id.myButton1);
+                                        Button button2 = (Button) findViewById(R.id.myButton2);
+                                        Button button3 = (Button) findViewById(R.id.myButton3);
+                                        Button button4 = (Button) findViewById(R.id.myButton4);
+                                        Button button5 = (Button) findViewById(R.id.myButton5);
+                                        Button button6 = (Button) findViewById(R.id.myButton6);
+                                        Button button7 = (Button) findViewById(R.id.myButton7);
+                                        Button button8 = (Button) findViewById(R.id.myButton8);
+                                        Button button9 = (Button) findViewById(R.id.myButton9);
+                                        TextView label = (TextView) findViewById(R.id.myGameStatusText);
+
+                                        button1.setText("");
+                                        button2.setText("");
+                                        button3.setText("");
+                                        button4.setText("");
+                                        button5.setText("");
+                                        button6.setText("");
+                                        button7.setText("");
+                                        button8.setText("");
+                                        button9.setText("");
+                                        label.setText("Player X starts");
+                                    }
+                                }
+                        )
+                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(PvpModeActivity.this, "Thanks for playing!", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                        })
+                        .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).create();
+                alert.show();
+                break;
+        }
     }
 
     public void myButtonPressed(View v) {
@@ -77,7 +132,7 @@ public class PvpModeActivity extends AppCompatActivity {
         if (myTable[x][y] != 0) {
             AlertDialog alert = new AlertDialog.Builder(this)
                     .setTitle("Tic Tac Toe")
-                    .setMessage("Error - This cell is not empty!")
+                    .setMessage("This cell is not empty!")
                     .setCancelable(true)
                     .create();
             alert.show();
@@ -113,209 +168,37 @@ public class PvpModeActivity extends AppCompatActivity {
         }
         if (!empty) {
             label.setText("It's a Draw!");
-
-            AlertDialog alert = new AlertDialog.Builder(this)
-                    .setTitle("Tic Tac Toe")
-                    .setMessage("It's a Draw!")
-                    .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                            recreate();
-                        }
-                    })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).create();
-            alert.show();
         }
         //horizontal lines check
         for (int i = 0; i != 3; ++i) {
             if (myTable[i][0] == 1 && myTable[i][1] == 1 && myTable[i][2] == 1) {
                 label.setText("Player 0 wins!");
-
-                AlertDialog alert = new AlertDialog.Builder(this)
-                        .setTitle("Tic Tac Toe")
-                        .setMessage("Player 0 wins!")
-                        .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                                recreate();
-                            }
-                        })
-                        .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }).create();
-                alert.show();
             }
             if (myTable[i][0] == 2 && myTable[i][1] == 2 && myTable[i][2] == 2) {
                 label.setText("Player X wins!");
-
-                AlertDialog alert = new AlertDialog.Builder(this)
-                        .setTitle("Tic Tac Toe")
-                        .setMessage("Player X wins!")
-                        .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                                recreate();
-                            }
-                        })
-                        .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }).create();
-                alert.show();
             }
         }
         //vertical lines check
         for (int i = 0; i != 3; ++i) {
             if (myTable[0][i] == 1 && myTable[1][i] == 1 && myTable[2][i] == 1) {
                 label.setText("Player 0 wins!");
-
-                AlertDialog alert = new AlertDialog.Builder(this)
-                        .setTitle("Tic Tac Toe")
-                        .setMessage("Player 0 wins!")
-                        .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                                recreate();
-                            }
-                        })
-                        .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }).create();
-                alert.show();
             }
             if (myTable[0][i] == 2 && myTable[1][i] == 2 && myTable[2][i] == 2) {
                 label.setText("Player X wins!");
-
-                AlertDialog alert = new AlertDialog.Builder(this)
-                        .setTitle("Tic Tac Toe")
-                        .setMessage("Player X wins!")
-                        .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                                recreate();
-                            }
-                        })
-                        .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }).create();
-                alert.show();
             }
         }
-        //diagonals check
+        //diagonal lines check
         if (myTable[0][0] == 1 && myTable[1][1] == 1 && myTable[2][2] == 1) {
             label.setText("Player 0 wins!");
-
-            AlertDialog alert = new AlertDialog.Builder(this)
-                    .setTitle("Tic Tac Toe")
-                    .setMessage("Player 0 wins!")
-                    .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                            recreate();
-                        }
-                    })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).create();
-            alert.show();
         }
         if (myTable[0][0] == 2 && myTable[1][1] == 2 && myTable[2][2] == 2) {
             label.setText("Player X wins!");
-
-            AlertDialog alert = new AlertDialog.Builder(this)
-                    .setTitle("Tic Tac Toe")
-                    .setMessage("Player X wins!")
-                    .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                            recreate();
-                        }
-                    })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).create();
-            alert.show();
         }
         if (myTable[0][2] == 1 && myTable[1][1] == 1 && myTable[2][0] == 1) {
             label.setText("Player 0 wins!");
-
-            AlertDialog alert = new AlertDialog.Builder(this)
-                    .setTitle("Tic Tac Toe")
-                    .setMessage("Player 0 wins!")
-                    .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                            recreate();
-                        }
-                    })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).create();
-            alert.show();
-
         }
         if (myTable[0][2] == 2 && myTable[1][1] == 2 && myTable[2][0] == 2) {
             label.setText("Player X wins!");
-
-            AlertDialog alert = new AlertDialog.Builder(this)
-                    .setTitle("Tic Tac Toe")
-                    .setMessage("Player X wins!")
-                    .setPositiveButton("Play again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                            recreate();
-                        }
-                    })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(PvpModeActivity.this, "Good Bye! Thanks for playing!", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).create();
-            alert.show();
         }
     }
 }
