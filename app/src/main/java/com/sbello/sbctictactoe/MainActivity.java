@@ -1,7 +1,7 @@
 package com.sbello.sbctictactoe;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
+
+import static android.graphics.Color.parseColor;
 
 
 public class MainActivity
@@ -24,11 +26,13 @@ public class MainActivity
         findViewById(R.id.exitButton).setOnClickListener(this);
 
         ActionBar myActionBar = getSupportActionBar();
-        myActionBar.setDisplayShowTitleEnabled(false);
-        myActionBar.setDisplayShowCustomEnabled(true);
-        View apptitle = getLayoutInflater().inflate(R.layout.app_title, null);
-        myActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
-        myActionBar.setCustomView(apptitle);
+        if (myActionBar != null) {
+            myActionBar.setDisplayShowTitleEnabled(false);
+            myActionBar.setDisplayShowCustomEnabled(true);
+            @SuppressLint("InflateParams") View appTitle = getLayoutInflater().inflate(R.layout.app_title, null);
+            myActionBar.setBackgroundDrawable(new ColorDrawable(parseColor("#000000")));
+            myActionBar.setCustomView(appTitle);
+        }
 
     }
 
@@ -56,7 +60,6 @@ public class MainActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Toast.makeText(MainActivity.this, "Sweet!!! Let's keep playing!", Toast.LENGTH_LONG).show();
-                                ;
                             }
                         }).create();
                 alert.show();
