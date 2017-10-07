@@ -61,7 +61,9 @@ public class MainActivity
                         }).create();
                 alert.show();
                 break;
-
+            case R.id.imageLogo:
+                intent = new Intent(MainActivity.this, PvpModeActivity.class);
+                break;
         }
         if (intent != null) {
             startActivity(intent);
